@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: rgb(114, 114, 114);">
+<!--  <div class="login">
+	<h1>Basic Calculator</h1>
+
+
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="a" placeholder="Enter the first number" required="required" />
+        <input type="text" name="b" placeholder="Enter the second number" required="required" />
+        <input type="text" name="operation" placeholder="add / subtract / divide / multiply" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Calculate</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ 
+  <div class="ng-scope" ng-controller="GameController" style="width: 100%; margin: 0 auto;">
+    <fieldset style="text-align:center; font-family:Georgia,sans-serif;font-size:16px;">
+    <div>
+      <div style="width: 100%; margin: 0 auto;">
+        <table align="center" style="text-align:center; font-family:Georgia,sans-serif;font-size:16px;" border="0" cellpadding="2">
+          <span>Enter the Payoffs</span>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td colspan="2">Colin</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Left</td>
+              <td>Right</td>
+            </tr>
+            <tr>
+              <td rowspan="2">Rose</td>
+              <td>Up</td>
+              <td style="border:1px solid black;width: 125px; height: 60px;">
+                <input class="ng-pristine ng-valid" size="2" style="text-align: right;" ng-model="a11" placeholder="_" ng-change="solveGame()">,
+                <input class="ng-pristine ng-valid" size="2" style="text-align: left;" ng-model="b11" placeholder="_" ng-change="solveGame()">
+              </td>
+              <td style="border:1px solid black;width: 125px; height: 60px;">
+                <input class="ng-pristine ng-valid" size="2" style="text-align: right;" ng-model="a12" placeholder="_" ng-change="solveGame()">,
+                <input class="ng-pristine ng-valid" size="2" style="text-align: left;" ng-model="b12" placeholder="_" ng-change="solveGame()">
+              </td>
+            </tr>
+            <tr>
+              <td>Down</td>
+              <td style="border:1px solid black;width: 125px; height: 60px;">
+                <input class="ng-pristine ng-valid" size="2" style="text-align: right;" ng-model="a21" placeholder="_" ng-change="solveGame()">,
+                <input class="ng-pristine ng-valid" size="2" style="text-align: left;" ng-model="b21" placeholder="_" ng-change="solveGame()">
+              </td>
+              <td style="border:1px solid black;width: 125px; height: 60px;">
+                <input class="ng-pristine ng-valid" size="2" style="text-align: right;" ng-model="a22" placeholder="_" ng-change="solveGame()">,
+                <input class="ng-pristine ng-valid" size="2" style="text-align: left;" ng-model="b22" placeholder="_" ng-change="solveGame()">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </fieldset>
+  </div> -->
+  <h2>Game Filled Out w Values</h2>
+
+  <div class="var2_row">
+
+    <div class="var2_column" style="background-color:#bbb;">
+      <h2>Effort Constants</h2>
+      <p></p>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Active Effort</td>
+          <td>{{calc_list[0][0]}}</td>
+        </tr>
+        <tr>
+          <td>Passive Effort</td>
+          <td>{{calc_list[0][1]}}</td>
+        </tr>
+        <tr>
+          <td>Defend Effort</td>
+          <td>{{calc_list[0][2]}}</td>
+        </tr>
+          <td>No Defend Effort</td>
+          <td>{{calc_list[0][3]}}</td>
+        </tr>
+
+      </table>
+    </div>
+    <div class="var2_column" style="background-color:#ccc;">
+      <h2>Calculated Cost Values</h2>
+      <p>Cost = (Strategy Effort)<sup>2</sup> * (Strategy Cost)</p>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Active Cost</td>
+          <td>{{calc_list[1][0]}}</td>
+        </tr>
+        <tr>
+          <td>Passive Cost</td>
+          <td>{{calc_list[1][1]}}</td>
+        </tr>
+        <tr>
+          <td>Defend Cost</td>
+          <td>{{calc_list[1][2]}}</td>
+        </tr>
+          <td>No Defend Cost</td>
+          <td>{{calc_list[1][3]}}</td>
+        </tr>
+
+      </table>
+    </div>
+    <div class="var2_column" style="background-color:#808080;">
+      <h2>Probability of Successful Attack</h2>
+      <p> P = <sup>2^<sup>(e_a-e_d)</sup></sup>&frasl;<sub>2</sub> </p>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Active + defend prob</td>
+          <td>{{calc_list[2][0]}}</td>
+        </tr>
+        <tr>
+          <td>Active + no defend prob</td>
+          <td>{{calc_list[2][1]}}</td>
+        </tr>
+        <tr>
+          <td>Passive + defend prob</td>
+          <td>{{calc_list[2][2]}}</td>
+        </tr>
+          <td>Passive + No Defend prob</td>
+          <td>{{calc_list[2][3]}}</td>
+        </tr>
+
+      </table>
+    </div>
+  
+    <hr style="border-top: 15px dotted #8c8b8b; border-bottom:none;">
+    <table style="width: 75%; align:center;" >
+      <h2>Payoff Matrix</h2>
+      <p>Attacker payoffs w formula: P*Utility - Cost</p>
+      <p>Defender payoffs w formula: (1-P)*Utility - Cost</p>
+      <tr>
+        <td></td>
+        <td></td>
+        <td colspan="2">Defender</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>Defend</td>
+        <td>No Defend</td>
+      </tr>
+      <tr>
+        <td rowspan="2">Attacker</td>
+        <td>Active</td>
+        
+        <td>{{calc_list[3][0]}} , {{calc_list[4][0]}}</td>
+        <td >{{calc_list[3][1]}} , {{calc_list[4][1]}} </td>
+      </tr>
+      <tr>
+        <td>Passive</td>
+        
+        <td>{{calc_list[3][2]}} , {{calc_list[4][2]}} </td>
+        <td >{{calc_list[3][3]}} , {{calc_list[4][3]}}</td>
+      </tr>
+    </table>
+    <h2>Click submit to solve the game</h2>
+    <form action="{{ url_for('results')}}" method="post">
+      <label for="radio">Are you sure?</label>
+      <input type="radio" id="radio" name="selected_items" value="{{calc_list}}">
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+{{ prediction_text }}
+</body>
+</html>

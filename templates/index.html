@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: rgb(114, 114, 114);">
+<!--  <div class="login">
+	<h1>Basic Calculator</h1>
+
+
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="a" placeholder="Enter the first number" required="required" />
+        <input type="text" name="b" placeholder="Enter the second number" required="required" />
+        <input type="text" name="operation" placeholder="add / subtract / divide / multiply" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Calculate</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ 
+  <div class="ng-scope" ng-controller="GameController" style="width: 100%; margin: 0 auto;">
+    <fieldset style="text-align:center; font-family:Georgia,sans-serif;font-size:16px;">
+    <div>
+      <div style="width: 100%; margin: 0 auto;">
+        <table align="center" style="text-align:center; font-family:Georgia,sans-serif;font-size:16px;" border="0" cellpadding="2">
+          <span>Enter the Payoffs</span>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td colspan="2">Colin</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Left</td>
+              <td>Right</td>
+            </tr>
+            <tr>
+              <td rowspan="2">Rose</td>
+              <td>Up</td>
+              <td style="border:1px solid black;width: 125px; height: 60px;">
+                <input class="ng-pristine ng-valid" size="2" style="text-align: right;" ng-model="a11" placeholder="_" ng-change="solveGame()">,
+                <input class="ng-pristine ng-valid" size="2" style="text-align: left;" ng-model="b11" placeholder="_" ng-change="solveGame()">
+              </td>
+              <td style="border:1px solid black;width: 125px; height: 60px;">
+                <input class="ng-pristine ng-valid" size="2" style="text-align: right;" ng-model="a12" placeholder="_" ng-change="solveGame()">,
+                <input class="ng-pristine ng-valid" size="2" style="text-align: left;" ng-model="b12" placeholder="_" ng-change="solveGame()">
+              </td>
+            </tr>
+            <tr>
+              <td>Down</td>
+              <td style="border:1px solid black;width: 125px; height: 60px;">
+                <input class="ng-pristine ng-valid" size="2" style="text-align: right;" ng-model="a21" placeholder="_" ng-change="solveGame()">,
+                <input class="ng-pristine ng-valid" size="2" style="text-align: left;" ng-model="b21" placeholder="_" ng-change="solveGame()">
+              </td>
+              <td style="border:1px solid black;width: 125px; height: 60px;">
+                <input class="ng-pristine ng-valid" size="2" style="text-align: right;" ng-model="a22" placeholder="_" ng-change="solveGame()">,
+                <input class="ng-pristine ng-valid" size="2" style="text-align: left;" ng-model="b22" placeholder="_" ng-change="solveGame()">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </fieldset>
+  </div> -->
+  <h2>Game Visualization</h2>
+
+  <div class="var_row">
+
+    <div class="var_column" style="background-color:#bbb;">
+      <h2>Effort Constants</h2>
+      <p>How much effort does each player put into their strategies?</p>
+      <form action="{{ url_for('predict')}}"method="post"> 
+        <label for="active_effort_a">Active Attack</label> 
+        <input type="number" name="active_effort_a" id="active_effort_a" min=".5" max="1" step=".1"/>
+        
+        <label for="passive_effort_a">Passive Attack</label> 
+        <input type="number" name="passive_effort_a" id="passive_effort_a" min="0" max=".4" step=".1"/> 
+        <label for="defend_effort_d">Defend</label> 
+        <input type="number" name="defend_effort_d" id="defend_effort_d" min=".1" max="1" step=".1"/> 
+        <label for="no_effort_d">No Defend</label> 
+        <input type="number" name="no_effort_d" id="no_effort_d" min="0" max="0" step=".1"/> 
+    </div>
+    <div class="var_column" style="background-color:#ccc;">
+      <h2>Cost Constants</h2>
+      <p>How much does it cost for each strategy for each player?</p>
+        <label for="active_cost_a">Active Attack</label> 
+        <input type="number" name="active_cost_a" id="active_cost_a" />
+        <label for="passive_cost_a">Passive Attack</label> 
+        <input type="number" name="passive_cost_a" id="passive_cost_a"/> 
+        <label for="defend_cost_d">Defend</label> 
+        <input type="number"name="defend_cost_d" id="defend_cost_d"/> 
+        <label for="no_cost_d">No Defend</label> 
+        <input type="number" name="no_cost_d" id="no_cost_d" /> 
+    </div>
+
+    <div style="background-color: grey; height: 480px; padding:10px;">
+    <h2>Player Utilities per Strategy</h2>
+    <table style="width: 40%">
+      <tr>
+        <td></td>
+        <td></td>
+        <td colspan="2">Defender</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td style="width: 50%;">Defend</td>
+        <td style="width: 50%;">No Defend</td>
+      </tr>
+      <tr>
+        <td rowspan="2">Attacker</td>
+        <td>Active</td>
+        
+        <td style="border:1px solid black;width: 125px; height: 60px;"><input type="text" name="a11" id="a11" size="2" placeholder="-" />, <input type="text" name="d11" id="d11" placeholder="-"/> </td>
+        <td style="border:1px solid black;width: 125px; height: 60px;" ><input type="text" name="a12" id="a12" size="2" placeholder="-"/>, <input type="text" name="d12" id="d12" placeholder="-"/> </td>
+      </tr>
+      <tr>
+        <td>Passive</td>
+        
+        <td style="border:1px solid black;width: 125px; height: 60px;"><input type="text" name="a21" id="a21" size="2" placeholder="-"/>, <input type="text" name="d21" id="d21" placeholder="-"/> </td>
+        <td style="border:1px solid black;width: 125px; height: 60px;"> <input type="text" name="a22" id="a22" size="2" placeholder="-"/>, <input type="text" name="d22" id="d22" placeholder="-"/></td>
+      </tr>
+    </table>
+    <h2>Click submit to start game</h2>
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+  </div>
+</div>
+{{ prediction_text }}
+</body>
+</html>

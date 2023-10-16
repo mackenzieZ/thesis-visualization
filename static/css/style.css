@@ -1,0 +1,207 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html { width: 100%; height:100%; overflow:scroll; }
+
+body { 
+	width: 100%;
+	height:100%;
+	font-family: 'Helvetica';
+	background: rgb(133, 129, 255);
+	color: #fff;
+	font-size: 24px;
+	text-align:center;
+	letter-spacing:1.4px;
+
+}
+.login { 
+	position: absolute;
+	top: 40%;
+	left: 45%;
+	margin: -150px 0 0 -150px;
+	width:400px;
+	height:400px;
+}
+
+.login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+input { 
+	width: 90%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+
+.var_column {
+	float: left;
+	width: 20%;
+	height: 500px;
+
+  }
+  
+  /* Clear floats after the columns */
+  /**/
+.var_row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.var_row h2{
+	font-size: 20px;
+}
+.var_row p{
+	font-size:20px;
+}
+
+.var_row input{
+	width: 80%; 
+	margin-bottom: 10px;
+	margin-right: 10px; 
+	margin-left: 10px;
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 20px;
+	color: #fff;
+}
+ .var_row label{
+	font-size:20px;
+ }
+
+ .var_row table {
+	border-collapse: collapse;
+	width: 90%;
+	margin: 20px auto;
+  }
+
+  .var_row td, th {
+	border: 1px solid black;
+	text-align: center;
+	height: 40px;
+	width: 80px;
+  }
+
+input[type=submit]{
+	background-color: lightblue;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+
+}
+
+.var2_column {
+	float: left;
+	width: 33.33%;
+	height: 350px;
+	margin-bottom: 50px;
+  }
+  
+  /* Clear floats after the columns */
+.var2_row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.var2_row h2{
+	font-size: 20px;
+}
+.var2_row p{
+	font-size:20px;
+}
+
+.var2_row input{
+	width: 50%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 10px;
+	color: #fff;
+}
+ .var2_row label{
+	font-size:15px;
+ }
+
+ .var2_row table {
+	border-collapse: collapse;
+	width: 90%;
+	margin: 20px auto;
+  }
+
+  .var2_row td, th {
+	border: 1px solid black;
+	text-align: center;
+	height: 40px;
+	width: 80px;
+  }
+
+  input[type="text"] {
+    width: 50px;
+}
+
+.var3_column {
+	float: left;
+	width: 50%;
+	height: 350px;
+	margin-bottom: 50px;
+  }
+  
+  /* Clear floats after the columns */
+.var3_row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.var3_row h2{
+	font-size: 30px;
+}
+.var3_row p{
+	font-size:25px;
+}
+
+.var3_row input{
+	width: 50%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 10px;
+	color: #fff;
+}
+ .var3_row label{
+	font-size:15px;
+ }
+
+ .var3_row table {
+	border-collapse: collapse;
+	width: 90%;
+	margin: 20px auto;
+  }
+
+  .var3_row td, th {
+	border: 1px solid black;
+	text-align: center;
+	height: 40px;
+	width: 80px;
+  }
