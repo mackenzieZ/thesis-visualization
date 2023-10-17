@@ -35,7 +35,7 @@ def strat_cost_calc(effort, cost):
   return calc_cost 
 
 def prob_success_attack(e_a,e_d):
-  prob = truncate_float((2**(e_a-e_d))/2, decimal_len)
+  prob = truncate_float((e_a/(1+e_d)), decimal_len)
 
   return prob
 
@@ -55,9 +55,6 @@ def truncate_float(float_number, decimal_places):
 
 
 def solve_game(payoffs_a, payoffs_d):
-  #payoffs_a = np.array([[4,0], [0,2]])
-  #payoffs_d = np.array([[2,0], [0,4]])
-
   gameN = nash.Game(payoffs_a,payoffs_d)
   gameN
 
@@ -68,17 +65,13 @@ def solve_game(payoffs_a, payoffs_d):
 
   arr1 = sol[0]
 
-
   #solve Utilities
   sigma_r = np.array(arr1[0])
   sigma_c = np.array(arr1[1])
   utilities = gameN[sigma_r, sigma_c]
-
-  print("utilities for each player ")
-  print(utilities)
-
+  
   arr1.append(utilities)
-
+  #format for html access; formats from tuple -> array values
   for x in range(len(arr1)):
     for y in range(len(arr1[x])):
       print("before " + str(arr1[x][y]))

@@ -89,7 +89,24 @@
     </div>
     <div class="var3_column" style="background-color:#808080;">
       <h2>What does this mean?</h2>
-      <p>Cost = formula</p>
+        {% if solution[0][0] == 1 and solution[0][1] == 0 %}
+        <p>The Attacker has a pure strategy of Active Attack.</p>
+        {% elif solution[0][0] == 0 and solution[0][1] == 1 %}
+        <p>The Attacker has a pure strategy of Passive Attack.</p>
+        {% else %} 
+        <p>The solution is a mixed strategy. The Attacker should be expected to use the Active Attack strategy
+          {{solution[0][0]}} % of the time and the Passive Attack strategy {{solution}} % of the time.</p>
+        {% endif %}
+        
+        {% if solution[1][0] == 1 and solution[1][1] == 0 %}
+        <p>The Defender has a pure strategy of Defend Attack.</p>
+        {% elif solution[1][0] == 0 and solution[1][1] == 1 %}
+        <p>The Defend has a pure strategy of No Defense.</p>
+        {% else %}
+        <p>The Defender should be expected to use the Defend strategy
+          {{solution[1][0]}} % of the time and the No Defense strategy {{solution}} % of the time.
+        </p>
+        {% endif %}
       
       
         
