@@ -57,20 +57,16 @@ def truncate_float(float_number, decimal_places):
 def solve_game(payoffs_a, payoffs_d):
   gameN = nash.Game(payoffs_a,payoffs_d)
   gameN
-
   equilibria = gameN.support_enumeration()
   sol = []
   for eq in equilibria:
     sol.append(list(eq))
 
   arr1 = sol[0]
-
   #solve Utilities
-  sigma_r = np.array(arr1[0])
-  sigma_c = np.array(arr1[1])
-  utilities = gameN[sigma_r, sigma_c]
-  
-  arr1.append(utilities)
+  utility_arr = calc_utilities(payoffs_a, payoffs_d, sol[0])
+  print(utility_arr)
+  arr1.append(utility_arr)
   #format for html access; formats from tuple -> array values
   for x in range(len(arr1)):
     for y in range(len(arr1[x])):
@@ -80,6 +76,16 @@ def solve_game(payoffs_a, payoffs_d):
 
   return arr1
 
+def calc_utilities(payoff_a, payoff_d, equilibria):
+  attacker_utility = 0
+  defender_utility= 0
+  for i in range(2):
+    for j in range(2):
+      attacker_utility= attacker_utility + (equilibria[0][i]*payoff_a[i][j]*equilibria[1][j])
+      defender_utility= defender_utility + (equilibria[1][i]*payoff_d[i][j]*equilibria[0][j])
+  
+  utility_arr = [attacker_utility, defender_utility]
+  return utility_arr
 
 def refactor_arrays_row(arr):
   arr1 = [arr[0], arr[1]]
