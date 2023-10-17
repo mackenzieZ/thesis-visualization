@@ -8,20 +8,20 @@ To run on Windows:
 
 3) Create virtual environment by running:
 
-virtualenv ENV
+    virtualenv ENV
 
 4)Activate environment
 
-.\ENV\Scripts\activate
+    .\ENV\Scripts\activate
 
 *if on Windows, check that PS has enabled Remote Signed scripts, if not execute:
 
-Set-ExecutionPolicy RemoteSigned
+    Set-ExecutionPolicy RemoteSigned
 
 5) install requirements:
 
-pip install -r .\requirements.txt
+    pip install -r .\requirements.txt
 
 6)Run App 
 
-python app.py
+    python app.py
