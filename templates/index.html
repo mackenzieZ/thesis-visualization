@@ -77,58 +77,63 @@
   </div> -->
   <h2>Game Visualization</h2>
 
-  <div class="var_row">
+  <div class="var_row" style="height:100%;">
 
     <div class="var_column" style="background-color:#bbb;">
       <h2>Effort Constants</h2>
-      <p>How much effort does each player put into their strategies?</p>
+      <p>Threshold for Effort:</p>
+      <p> 0.0 <span>&#8804;</span> effort <span>&#8804;</span> 1.0</p>
       <form action="{{ url_for('predict')}}"method="post"> 
-        <label for="active_effort_a">Active Attack</label> 
-        <input type="number" name="active_effort_a" id="active_effort_a" min=".5" max="1" step=".1"/>
-        
-        <label for="passive_effort_a">Passive Attack</label> 
+        <label for="active_effort_a" style="color: red;">Active Attack</label> 
+        <p>0.5 <span>&#8804;</span> active effort <span>&#8804;</span> 1.0</p>
+        <input type="number" name="active_effort_a" id="active_effort_a" min=".5" max="1" step=".1"/>        
+        <label for="passive_effort_a" style="color: lightcoral;">Passive Attack</label> 
+        <p>0.0 <span>&#8804;</span> passive effort <span>&#60;</span>  0.5</p>
         <input type="number" name="passive_effort_a" id="passive_effort_a" min="0" max=".4" step=".1"/> 
-        <label for="defend_effort_d">Defend</label> 
+        <label for="defend_effort_d" style="color: darkblue;">Defend</label>
+        <p> 0.0 <span>&#60;</span> defend effort <span>&#8804;</span> 1</p>
         <input type="number" name="defend_effort_d" id="defend_effort_d" min=".1" max="1" step=".1"/> 
-        <label for="no_effort_d">No Defend</label> 
+        <label for="no_effort_d" style="color: rgb(100, 149, 237);">No Defend</label> 
+        <p> no defend effort <span>&#61;</span> 0</p>
         <input type="number" name="no_effort_d" id="no_effort_d" min="0" max="0" step=".1"/> 
     </div>
-    <div class="var_column" style="background-color:#ccc;">
+    <div class="var_column" style="background-color:#ccc; height: 100%;">
       <h2>Cost Constants</h2>
-      <p>How much does it cost for each strategy for each player?</p>
-        <label for="active_cost_a">Active Attack</label> 
+      <p>Values represent positive numbers:
+      <p> 0 <span>&#8804;</span> cost <span>&#60;</span> <span>&#8734;</span> </p>
+        <label for="active_cost_a" style="color: red;">Active Attack</label> 
         <input type="number" name="active_cost_a" id="active_cost_a" />
-        <label for="passive_cost_a">Passive Attack</label> 
+        <label for="passive_cost_a" style="color: lightcoral;">Passive Attack</label> 
         <input type="number" name="passive_cost_a" id="passive_cost_a"/> 
-        <label for="defend_cost_d">Defend</label> 
+        <label for="defend_cost_d" style="color: darkblue;">Defend</label> 
         <input type="number"name="defend_cost_d" id="defend_cost_d"/> 
-        <label for="no_cost_d">No Defend</label> 
+        <label for="no_cost_d"style="color: rgb(100, 149, 237);">No Defend</label> 
         <input type="number" name="no_cost_d" id="no_cost_d" /> 
     </div>
 
-    <div style="background-color: grey; height: 480px; padding:10px;">
-    <h2>Player Utilities per Strategy</h2>
-    <table style="width: 40%">
+    <div style="background-color: grey; height: 55%; padding:10px;">
+    <h2>Player Base Utilities per Strategy</h2>
+    <table style="width: 40%;">
       <tr>
         <td></td>
         <td></td>
-        <td colspan="2">Defender</td>
+        <td colspan="2" style="color:blue">Defender</td>
       </tr>
       <tr>
         <td></td>
         <td></td>
-        <td style="width: 50%;">Defend</td>
-        <td style="width: 50%;">No Defend</td>
+        <td style="width: 50%;color: darkblue">Defend</td>
+        <td style="width: 50%; color: rgb(100, 149, 237)">No Defend</td>
       </tr>
       <tr>
-        <td rowspan="2">Attacker</td>
-        <td>Active</td>
+        <td rowspan="2" style="color: rgb(164, 42, 4)">Attacker</td>
+        <td style="color:red">Active</td>
         
         <td style="border:1px solid black;width: 125px; height: 60px;"><input type="text" name="a11" id="a11" size="2" placeholder="-" />, <input type="text" name="d11" id="d11" placeholder="-"/> </td>
         <td style="border:1px solid black;width: 125px; height: 60px;" ><input type="text" name="a12" id="a12" size="2" placeholder="-"/>, <input type="text" name="d12" id="d12" placeholder="-"/> </td>
       </tr>
       <tr>
-        <td>Passive</td>
+        <td style="color:lightcoral">Passive</td>
         
         <td style="border:1px solid black;width: 125px; height: 60px;"><input type="text" name="a21" id="a21" size="2" placeholder="-"/>, <input type="text" name="d21" id="d21" placeholder="-"/> </td>
         <td style="border:1px solid black;width: 125px; height: 60px;"> <input type="text" name="a22" id="a22" size="2" placeholder="-"/>, <input type="text" name="d22" id="d22" placeholder="-"/></td>
@@ -136,8 +141,12 @@
     </table>
     <h2>Click submit to start game</h2>
     <button type="submit" class="submit-button">Submit</button>
-  </form>
+  </form> 
   </div>
+  <h2>What do each of these values mean?</h2>
+  <p>Effort Contstants - How much effort does each player put into their strategies? Each strategy has their own defined effor threshold</p>
+  <p>Cost Constants - How much does it cost for each strategy for each player?</p>
+  <p>Base Utilities - description </p>
 </div>
 {{ prediction_text }}
 </body>

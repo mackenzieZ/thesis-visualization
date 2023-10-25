@@ -47,7 +47,7 @@ input {
 .var_column {
 	float: left;
 	width: 20%;
-	height: 500px;
+	height: 100%;
 
   }
   
@@ -61,9 +61,10 @@ clear: both;
 
 .var_row h2{
 	font-size: 20px;
+	font-weight: bold;
 }
 .var_row p{
-	font-size:20px;
+	font-size:15px;
 }
 
 .var_row input{
@@ -109,7 +110,7 @@ input[type=submit]{
 .var2_column {
 	float: left;
 	width: 33.33%;
-	height: 350px;
+	height: 100%;
 	margin-bottom: 50px;
   }
   
@@ -152,7 +153,9 @@ clear: both;
 	text-align: center;
 	height: 40px;
 	width: 80px;
+	
   }
+
 
   input[type="text"] {
     width: 50px;
@@ -204,4 +207,24 @@ clear: both;
 	text-align: center;
 	height: 40px;
 	width: 80px;
+	
+  }
+
+  .submit-input input[type=radio]{
+	position: center;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background-color: #eee;
+	border-radius: 50%;
+  }
+  .submit-input input[type=submit]{
+	position: center;
+	top: 0;
+	left: 10px;
+	height: 30px;
+	width: 30px;
+	background-color: #eee;
+	border-radius: 50%;
   }

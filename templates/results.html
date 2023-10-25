@@ -133,7 +133,7 @@
     </div>
     <div class="var2_column" style="background-color:#808080;">
       <h2>Probability of Successful Attack</h2>
-      <p> P = <sup>2^<sup>(e_a-e_d)</sup></sup>&frasl;<sub>2</sub> </p>
+      <p> P = <sup>e<sub>a</sub></sup></sup>&frasl;<sub>1+e<sub>d</sub></sub> </p>
       <table>
         <tr>
           <th>Name</th>
@@ -166,31 +166,33 @@
       <tr>
         <td></td>
         <td></td>
-        <td colspan="2">Defender</td>
+        <td colspan="2" style="color: blue">Defender</td>
       </tr>
       <tr>
         <td></td>
         <td></td>
-        <td>Defend</td>
-        <td>No Defend</td>
+        <td style="width: 50%; color: darkblue">Defend</td>
+        <td style="width: 50%; color:rgb(100, 149, 237)">No Defend</td>
       </tr>
       <tr>
-        <td rowspan="2">Attacker</td>
-        <td>Active</td>
+        <td rowspan="2" style="color:rgb(164, 42, 4)">Attacker</td>
+        <td style="color: red">Active</td>
         
-        <td>{{calc_list[3][0]}} , {{calc_list[4][0]}}</td>
-        <td >{{calc_list[3][1]}} , {{calc_list[4][1]}} </td>
+        <td ><span style="color:rgb(164, 42, 4)">{{calc_list[3][0]}} </span> ,  <span style="color: blue">{{calc_list[4][0]}}</span></td>
+        <td ><span style="color:rgb(164, 42, 4)">{{calc_list[3][1]}} </span> ,<span style="color: blue"> {{calc_list[4][1]}} </span></td>
       </tr>
       <tr>
-        <td>Passive</td>
+        <td style="color: lightcoral">Passive</td>
         
-        <td>{{calc_list[3][2]}} , {{calc_list[4][2]}} </td>
-        <td >{{calc_list[3][3]}} , {{calc_list[4][3]}}</td>
+        <td ><span style="color:rgb(164, 42, 4)">{{calc_list[3][2]}} </span> ,  <span style="color: blue">{{calc_list[4][2]}} </span></td>
+        <td><span style="color:rgb(164, 42, 4)">{{calc_list[3][3]}} </span>,  <span style="color: blue">{{calc_list[4][3]}} </span></td>
       </tr>
     </table>
-    <h2>Click submit to solve the game</h2>
+  </div>
+
+  <div class="submit-input">
+    <h2>Select Radio Button and Submit to solve the game</h2>
     <form action="{{ url_for('results')}}" method="post">
-      <label for="radio">Are you sure?</label>
       <input type="radio" id="radio" name="selected_items" value="{{calc_list}}">
       <button type="submit" class="submit-button">Submit</button>
     </form>
