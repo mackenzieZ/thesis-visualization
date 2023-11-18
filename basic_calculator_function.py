@@ -29,9 +29,8 @@ def basic_calculator(a,b,operation):
   return result
 
 def strat_cost_calc(effort, cost):
-
-  calc_cost = truncate_float((effort*effort)*cost,decimal_len)
-
+  calc_cost = (effort*cost)
+  calc_cost = truncate_float(calc_cost+cost,decimal_len)
   return calc_cost 
 
 def prob_success_attack(e_a,e_d):
@@ -46,7 +45,7 @@ def calc_defender_payoff(prob_success, utility, cost):
 
 def calc_attacker_payoff(prob_success, utility, cost):
   payoff = truncate_float(((prob_success)*utility) - cost, decimal_len)
-
+  print("payoff calc function: " + str(payoff))
   return payoff
 
 def truncate_float(float_number, decimal_places):
